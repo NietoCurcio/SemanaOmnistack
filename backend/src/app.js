@@ -1,5 +1,6 @@
 const express =require('express');
-const cors = require('cors');
+const cors = require('cors'); 
+const { errors } = require('celebrate');
 const routes = require('./routes');
 const app = express();
 
@@ -8,6 +9,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use(routes);
+
+app.use(errors());
 //recurso vem dentro da barra, é a rota
 /**
  * get: buscar/listar informação dentro do backend
@@ -35,4 +38,4 @@ app.use(routes);
  */
   //para o back-end continuar sendo executado, precisamos do npm start
 
-app.listen(3333);
+module.exports = app;
